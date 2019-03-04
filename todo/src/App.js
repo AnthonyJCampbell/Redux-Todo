@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Components/Header';
 import TodoList from './Components/ToDoList';
-import Add from './Components/Add';
 import './App.css';
 
 class App extends Component {
@@ -10,7 +9,6 @@ class App extends Component {
       <div className="App">
         <Header />
         <TodoList />
-        <Add />
       </div>
     );
   }
