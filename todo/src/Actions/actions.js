@@ -1,16 +1,16 @@
 export const ADD_TODO = "ADD_TODO";
 export const MARK_COMPLETED = "MARK_COMPLETED";
 
-export function addToDo(newToDo) {
+export function addToDo(value) {
   return {
     type: ADD_TODO,
-    payload: newToDo
+    value
   }
 }
 
-export function markCompleted(toDo) {
+export function markCompleted(value) {
     return {
         type: MARK_COMPLETED,
-        payload: toDo,
+        value,
     }
 }
