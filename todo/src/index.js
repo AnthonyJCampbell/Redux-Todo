@@ -7,15 +7,18 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 const store = createStore(
-    reducer,
+    todos,
     window.__REDUX_DEVTOOLS_EXTENSION__ 
         && 
     window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-function reducer() {
+function todos() {
     return {
-        title: 'Hello world! I\'m in the Redux store!',
+        todos: [
+            "Fuck Bitches",
+            "Get Money"
+        ],
     }
 }
 
