@@ -1,35 +1,43 @@
 import { ADD_TODO, MARK_COMPLETED } from './../Actions/actions';
+import { stat } from 'fs';
 
-function uniqueID() {
-    let count = 0;
-    return function () {
-        count++;
-    }
-}
-const id = uniqueID();
-
+let counter = 0;
+const uniqueID = () => {
+        return counter++;
+} 
 const initialState = {
-    todos: ["dsa",],
-    }
-  
-
+    todos: [],
+}
 // Our reducer that handles our two action cases:
 // increment and decrement. It receives the state
 // of our redux store, along with an action created
 // by our action creator. What does the reducer
 // need to do with the count in each case?
-    export default (state = initialState, action) => {
+export default (state = initialState, action) => {
     switch (action.type) {
         case ADD_TODO:
             return {
                 todos: state.todos.concat({
                     value: action.value,
-                    id: id()
+                    complete: false,
+                    id: uniqueID()
                 })
             };
         case MARK_COMPLETED:
-        // Fill in the body of this case
-            return {count: state.count - 1};
+            return {
+                todos: state.todos.map(todo => {
+                    if (todo.id === action.value) {
+                        return {
+                            value: todo.value,
+                            complete: todo.complete ? false : true,
+                            id: todo.id
+                        }
+                    }
+                    return todo;
+                })
+            };
+            
+            
         default:
             return state;
   }

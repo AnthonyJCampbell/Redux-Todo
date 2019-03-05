@@ -4,7 +4,7 @@ export const MARK_COMPLETED = "MARK_COMPLETED";
 export function addToDo(value) {
   return {
     type: ADD_TODO,
-    value
+    value,
   }
 }
 

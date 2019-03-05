@@ -18,7 +18,6 @@ class Add extends Component {
         this.setState({ currentInputValue: "" });
     }
     render() {
-        console.log(this.props)
         return (
             <div>
                 <input type="text" value={this.state.inputValue} onChange={this.changeHandler} />
