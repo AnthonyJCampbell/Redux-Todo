@@ -2,6 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addToDo, markCompleted } from './../Actions/actions';
 import Add from './Add';
+import styled from 'styled-components';
+
+const StyledToDo = styled.li`
+    p {
+        text-decoration: ${props => (props.completed ? "line-through" : "none")};
+    }
+`;
 
 const ToDoList = (props) => {
     console.log(props)
@@ -10,9 +17,9 @@ const ToDoList = (props) => {
             <ul>
                 {props.todos.map((todo) => {
                     return (
-                        <li key={todo.id}>
-                            <p onClick={() => props.markCompleted(todo.id)}>{todo.value}</p>
-                        </li>
+                        <StyledToDo completed={todo.complete} key={todo.id}>
+                            <p  onClick={() => props.markCompleted(todo.id)}>{todo.value}</p>
+                        </StyledToDo>
                         
                     )
                 })}
